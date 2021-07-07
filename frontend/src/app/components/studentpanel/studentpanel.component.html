@@ -1,0 +1,30 @@
+<a class="waves-effect waves-light btn modal-trigger col s12 m4" style="margin-left: 10px;" href="#modal1">Register Course</a>
+
+<div id="modal1" class="modal">
+    <form name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate>
+    <div class="modal-content">
+      <h4>Register Course</h4>
+     
+        <div class="row">
+            <div class="input-field col s12 m6 offset-m3">
+                <input type="text"
+                class="form-control"
+                name="code"
+                [(ngModel)]="form.code"
+                required
+                #username="ngModel">
+                <label for="code">Course Code to Register</label>
+            </div>
+        </div>
+        
+     
+    </div>
+    <div class="modal-footer">
+        <button class="modal-close waves-effect waves-green btn-flat" type="submit" name="action">Submit</button>
+    </div>
+</form>
+  </div>
+

@@ -1,0 +1,50 @@
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Create Course</a>
+
+<div id="modal1" class="modal">
+    <form name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate>
+    <div class="modal-content">
+      <h4>Create Course</h4>
+     
+        <div class="row">
+            <div class="input-field col s12 m6 offset-m3">
+                <input type="text"
+                class="form-control"
+                name="code"
+                [(ngModel)]="form.code"
+                required
+                #username="ngModel">
+                <label for="code">Course Code</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6 offset-m3">
+                <input type="text"
+                class="form-control"
+                name="name"
+                [(ngModel)]="form.name"
+                required
+                #username="ngModel">
+                <label for="name">Course Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6 offset-m3">
+                <input type="text"
+                class="form-control"
+                name="description"
+                [(ngModel)]="form.description"
+                required
+                #username="ngModel">
+                <label for="description">Course Description</label>
+            </div>
+        </div>
+     
+    </div>
+    <div class="modal-footer">
+        <button class="modal-close waves-effect waves-green btn-flat" type="submit" name="action">Submit</button>
+    </div>
+</form>
+  </div>

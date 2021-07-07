@@ -1,0 +1,32 @@
+<nav class="nav-extended white">
+    <div class="nav-wrapper">
+        <div class="container">
+            <a href="#" class="brand-logo grey-text text-darken-4"><span class="green-text text-accent-2">Open</span>School</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger grey-text text-darken-4"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down grey-text text-darken-4">
+                <li><a href="/" class="green-text text-accent-4" *ngIf="isLoggedIn">Courses</a></li>
+                <li><a href (click)="logout();" class="grey-text text-darken-4" *ngIf="isLoggedIn">Logout</a></li>
+                <li><a href="/register" class="grey-text text-darken-4" *ngIf="!isLoggedIn">Register</a></li>
+                <li><a href="/login" class="grey-text text-darken-4" *ngIf="!isLoggedIn">Login</a></li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+  
+
+  <ul class="sidenav" id="mobile-demo" style="display: flex;
+  /* move flex-items in column */
+  flex-direction: column;">
+    <li><a class="grey-text text-darken-4" style="pointer-events: none;cursor: default;"><span class="green-text text-accent-2">Open</span>School</a></li>
+    <div class="divider"></div>
+    <li *ngIf="!isLoggedIn"><a href="/register" class="grey-text text-darken-4" *ngIf="!isLoggedIn">Register</a></li>
+    <li *ngIf="!isLoggedIn"><a href="/login" class="grey-text text-darken-4" *ngIf="!isLoggedIn">Login</a></li>
+    <li *ngIf="isLoggedIn"><a class="green-text text-accent-4" href="/"><i class="material-icons green-text text-accent-4">
+        home
+    </i>Courses</a></li>
+    
+    <li style="margin-top: auto;" *ngIf="isLoggedIn"><a href (click)="logout();"><i class="material-icons">
+        logout
+    </i>Logout</a></li>
+  </ul>
+

@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div class="container" style="margin-top: 30px;">
+
+    <div class="row"*ngIf="isLoggedIn">
+        <div *ngIf="isTutor">
+            <app-tutorpanel></app-tutorpanel>
+        </div>
+        <div *ngIf="!isTutor">
+            <app-studentpanel></app-studentpanel>
+        </div>
+    </div>
+    
+    <div class="row" *ngIf="isLoggedIn">
+        
+        <div class="col s12 m4" *ngFor="let course of courses">
+            
+                <div class="card small hoverable z-depth-2">
+                    <a routerLink="course/{{course.id}}" style="color: inherit;">
+                        <div class="card-image" style="height: 130px; overflow: hidden; ">
+                            <img src="https://images3.content-hci.com/commimg/video/CH/myhc_279666.jpg" style="margin-top: -15%;">
+                            <span class="card-title" style="text-shadow: black 10px 10px 20px;">{{course.name}}</span>
+                        </div>
+                        <div class="card-content">
+                            <p>{{course.code}} - {{course.tutorName}}</p>
+                            <p>{{course.description}}</p>
+                        </div>
+                    </a>
+                    <p class="right-align" style="margin-right: 10px;" *ngIf="isTutor"><a  [routerLink]="" (click)="deleteCourse(course.id)">Delete Course</a></p>
+                    <p class="right-align" style="margin-right: 10px;" *ngIf="!isTutor"><a [routerLink]="" (click)="unrollCourse(course.id)">Unroll</a></p>
+                    
+                </div>
+            
+            
+        </div>
+    </div>
+    <div *ngIf="!isLoggedIn">
+        <div style="margin-top: 150px;"></div>
+        <p class="flow-text center-align hide-on-med-and-down">Please Login or Register <i class="material-icons green-text ">
+            north_east
+        </i></p>
+        <p class="flow-text center-align hide-on-large-only"><i class="material-icons green-text">
+            north_west
+        </i> Please Login or Register</p>
+    </div>
+</div>

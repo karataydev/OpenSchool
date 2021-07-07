@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <h3 class="green-text text-darken-4">{{course.code}} - {{course.name}}</h3>
+    <div style="margin-top: 20px;" *ngIf="isTutor">
+        <app-tutorcoursecontents></app-tutorcoursecontents>
+    </div>
+ 
+    
+    <div class="col s12" *ngFor="let content of contents" style="margin-top: 20px;">
+        <div class="card">
+            <div class="card-content" style="padding-top: 10px;">
+                <div class="row">
+                    <h5 class="col s6 green-text text-darken-2">{{content.title}}</h5>
+                    <h5 class="col s6 right-align green-text text-darken-2" style="font-size: 20px;">{{content.name}} - {{content.date | date: "dd MMMM"}}</h5>
+                    <a class="col s6 right-align green-text text-darken-2" *ngIf="isTutor" [routerLink]="" (click)="deleteContent(content.id)"><i class="material-icons">clear</i></a>
+                </div>
+            
+                <p class="blue-grey-text text-darken-4">{{content.description}}</p>
+                    <a [routerLink]="" (click)="downloadFile(content.url, content.urlName)">{{content.urlName}}</a>
+                
+            </div>
+        </div>
+    </div>
+</div>

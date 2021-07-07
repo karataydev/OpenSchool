@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <form
+    *ngIf="!isLoggedIn"
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+    >
+    <div class="row">
+        <div class="input-field col s12 m6 offset-m3">
+            <input type="text"
+            class="form-control"
+            name="username"
+            [(ngModel)]="form.username"
+            required
+            #username="ngModel">
+            <label for="username">Username</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12 m6 offset-m3">
+            <input type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="3"
+            #username="ngModel">
+            <label for="password">Password</label>
+        </div>
+    </div>
+    <div class="row"  *ngIf="isLoginFailed">
+        <p class="col s12 m6 offset-m3"> Login Failed. Username or Password is wrong! </p>
+    </div>
+    
+    <div class="row">
+        <button class="center-align btn waves-effect waves-light col s12 m6 offset-m3" type="submit" name="action">Submit</button>
+    </div>
+    
+    </form>
+</div>
